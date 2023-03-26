@@ -1,0 +1,30 @@
+.submenu {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 150%;
+	left: 0;
+	background: $orange;
+	padding: 10px 16px;
+	width: 200px;
+	transition: top 0.2s, opacity 0.3s, height 0.3s;
+	z-index: 20;
+
+	&__list-item {}
+
+	&__link {
+		color: #fff;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	@media (max-width: 600px) {
+		height: 0px;
+		min-width: 100vw;
+		margin: 0 -15px;
+		overflow: hidden;
+		font-weight: 500;
+	}
+}
