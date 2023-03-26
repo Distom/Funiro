@@ -17,13 +17,11 @@
 //###################################################################
 
 .header {
-
-	&_fixed {
-		position: fixed;
-		width: 100%;
-		top: 0;
-		left: 0;
-	}
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
 
 	&__container {
 		min-height: 125px;
