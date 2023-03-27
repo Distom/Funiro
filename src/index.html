@@ -74,11 +74,45 @@
 				</div>
 				<div class="header__icons">
 					<div class="header__favourite favourite">
-						<i class="favourite__icon _icon-favourite">
+						<button class="favourite__button _icon-favourite">
 							<span class="favourite__counter counter">1</span>
-						</i>
+						</button>
 						<div class="favourite__block">
-							<ul class="favourite__products products-list"></ul>
+							<ul class="favourite__products">
+								<li class="favourite__product favourite-product">
+									<div class="favourite-product__image-wrapper _bgi-wrapper">
+										<img src="img/products/1.png" alt="" class="favourite-product__image _bgi">
+									</div>
+									<div class="favourite-product__body">
+										<h2 class="favourite-product__title">ProductName</h2>
+										<div class="favourite-product__buttons">
+											<button class="favourite-product__move-button button">Move to cart</button>
+											<button class="favourite-product__delete-button button button_white">Delete</button>
+										</div>
+									</div>
+								</li>
+								<li class="favourite__product favourite-product">
+									<div class="favourite-product__image-wrapper _bgi-wrapper">
+										<img src="img/products/1.png" alt="" class="favourite-product__image _bgi">
+									</div>
+									<div class="favourite-product__body">
+										<h2 class="favourite-product__title">ProductName</h2>
+										<button class="favourite-product__move-button button">Move to cart</button>
+										<button class="favourite-product__delete-button button button_white">Delete</button>
+									</div>
+								</li>
+								<li class="favourite__product favourite-product">
+									<div class="favourite-product__image-wrapper _bgi-wrapper">
+										<img src="img/products/1.png" alt="" class="favourite-product__image _bgi">
+									</div>
+									<div class="favourite-product__body">
+										<h2 class="favourite-product__title">ProductName</h2>
+										<button class="favourite-product__move-button button">Move to cart</button>
+										<button class="favourite-product__delete-button button button_white">Delete</button>
+									</div>
+								</li>
+
+							</ul>
 						</div>
 					</div>
 					<div class="header__cart cart">
@@ -86,19 +120,53 @@
 							<span class="cart__counter counter">99</span>
 						</button>
 						<div class="cart__block">
-							<ul class="cart__products products-list"></ul>
+							<ul class="cart__products">
+								<li class="cart__product cart-product">
+									<div class="cart-product__image-wrapper _bgi-wrapper">
+										<img src="img/products/1.png" alt="" class="cart-product__image _bgi">
+									</div>
+									<div class="cart-product__body">
+										<h2 class="cart-product__title">ProductName</h2>
+										<div class="cart-product__counter">Quantity:</div>
+										<button class="cart-product__delete-button button button_white">Delete</button>
+									</div>
+								</li>
+
+								<li class="cart__product cart-product">
+									<div class="cart-product__image-wrapper _bgi-wrapper">
+										<img src="img/products/1.png" alt="" class="cart-product__image _bgi">
+									</div>
+									<div class="cart-product__body">
+										<h2 class="cart-product__title">ProductName</h2>
+										<div class="cart-product__counter">Quantity:</div>
+										<button class="cart-product__delete-button button button_white">Delete</button>
+									</div>
+								</li>
+
+							</ul>
+							<button class="cart__order-button button">Checkout</button>
 						</div>
 					</div>
 					<div class="header__account account">
 						<div class="account__image-wrapper _bgi-wrapper">
 							<img src="img/header/photo.png" alt="User avatar" class="account__image _bgi">
 						</div>
-						<div class="account__block">
-							<p class="account__name"></p>
-							<p class="account__mail"></p>
-							<button class="account__button">Log in</button>
-							<button class="account__button">Registration</button>
+						<div class="account__block profile">
+							<div class="profile__body">
+								<div class="profile__image-wrapper _bgi-wrapper">
+									<img src="img/header/avatar.png" alt="user photo" class="profile__image _bgi">
+								</div>
+								<div class="profile__information">
+									<p class="profile__name">Дима Стехов</p>
+									<p class="profile__mail">dimastekhov@gmail.com</p>
+								</div>
+							</div>
+							<div class="profile__buttons">
+								<button class="account__button account__button_login button">Log in</button>
+								<button class="account__button account__button_logout button button_white">Log out</button>
+							</div>
 						</div>
+
 					</div>
 					<button class="header__menu-button">
 						<span class="header__menu-button-line"></span>
@@ -263,7 +331,123 @@
 			<section class="products">
 				<div class="products__container">
 					<h2 class="products__title title">Our Products</h2>
-					<div class="products__body"></div>
+					<div class="products__body">
+
+						<div class="products__card product-card">
+							<div class="product-card__image-wrapper _bgi-wrapper">
+								<img src="img/products/1.png" alt="" class="product-card__image _bgi">
+							</div>
+							<h3 class="product-card__title">Syltherine</h3>
+							<p class="product-card__text">Stylish cafe chair</p>
+							<div class="product-card__prices">
+								<div class="product-card__actual-price">Rp 2.500.000</div>
+								<div class="product-card__previous-price">Rp 3.500.000</div>
+							</div>
+							<div class="product-card__buttons">
+								<button class="product-card__add-button button button_white">Add to cart</button>
+								<div class="product-card__icon-buttons">
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-share"></i>
+										<span class="product-icon-button__text">Share</span>
+									</button>
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-favourite"></i>
+										<span class="product-icon-button__text">Like</span>
+									</button>
+								</div>
+							</div>
+							<div class="product-card__markers">
+								<div class="product-card__marker product-marker product-marker_discount">-30%</div>
+							</div>
+						</div>
+
+						<div class="products__card product-card">
+							<div class="product-card__image-wrapper _bgi-wrapper">
+								<img src="img/products/1.png" alt="" class="product-card__image _bgi">
+							</div>
+							<h3 class="product-card__title">Syltherine</h3>
+							<p class="product-card__text">Stylish cafe chair</p>
+							<div class="product-card__prices">
+								<div class="product-card__actual-price">Rp 2.500.000</div>
+								<div class="product-card__previous-price">Rp 3.500.000</div>
+							</div>
+							<div class="product-card__buttons">
+								<button class="product-card__add-button button button_white">Add to cart</button>
+								<div class="product-card__icon-buttons">
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-share"></i>
+										<span class="product-icon-button__text">Share</span>
+									</button>
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-favourite"></i>
+										<span class="product-icon-button__text">Like</span>
+									</button>
+								</div>
+							</div>
+							<div class="product-card__markers">
+								<div class="product-card__marker product-marker product-marker_discount">-30%</div>
+							</div>
+						</div>
+
+						<div class="products__card product-card">
+							<div class="product-card__image-wrapper _bgi-wrapper">
+								<img src="img/products/1.png" alt="" class="product-card__image _bgi">
+							</div>
+							<h3 class="product-card__title">Syltherine</h3>
+							<p class="product-card__text">Stylish cafe chair</p>
+							<div class="product-card__prices">
+								<div class="product-card__actual-price">Rp 2.500.000</div>
+								<div class="product-card__previous-price">Rp 3.500.000</div>
+							</div>
+							<div class="product-card__buttons">
+								<button class="product-card__add-button button button_white">Add to cart</button>
+								<div class="product-card__icon-buttons">
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-share"></i>
+										<span class="product-icon-button__text">Share</span>
+									</button>
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-favourite"></i>
+										<span class="product-icon-button__text">Like</span>
+									</button>
+								</div>
+							</div>
+							<div class="product-card__markers">
+								<div class="product-card__marker product-marker product-marker_discount">-30%</div>
+							</div>
+						</div>
+
+						<div class="products__card product-card">
+							<div class="product-card__image-wrapper _bgi-wrapper">
+								<img src="img/products/1.png" alt="" class="product-card__image _bgi">
+							</div>
+							<h3 class="product-card__title">Syltherine</h3>
+							<p class="product-card__text">Stylish cafe chair</p>
+							<div class="product-card__prices">
+								<div class="product-card__actual-price">Rp 2.500.000</div>
+								<div class="product-card__previous-price">Rp 3.500.000</div>
+							</div>
+							<div class="product-card__buttons">
+								<button class="product-card__add-button button button_white">Add to cart</button>
+								<div class="product-card__icon-buttons">
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-share"></i>
+										<span class="product-icon-button__text">Share</span>
+									</button>
+									<button class="product-card__icon-button product-icon-button">
+										<i class="product-icon-button__icon _icon-favourite"></i>
+										<span class="product-icon-button__text">Like</span>
+									</button>
+								</div>
+							</div>
+							<div class="product-card__markers">
+								<div class="product-card__marker product-marker product-marker_discount">-30%</div>
+								<div class="product-card__marker product-marker product-marker_new">New</div>
+							</div>
+						</div>
+
+
+					</div>
 					<button class="products__button button button_white">Show More</button>
 				</div>
 			</section>

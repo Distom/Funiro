@@ -141,7 +141,15 @@
 		align-items: center;
 
 		@media (max-width: 650px) {
-			display: none;
+			position: absolute;
+			top: -25px;
+			left: 0;
+			z-index: 10;
+			min-height: 20px;
+			padding-bottom: 0;
+			padding-left: 0;
+			width: 100%;
+			pointer-events: none;
 		}
 	}
 
@@ -151,6 +159,13 @@
 		padding-left: 32px;
 		align-items: center;
 
+		@media (max-width: 650px) {
+			min-height: 20px;
+			padding-left: 3px;
+			justify-content: center;
+			pointer-events: none;
+			transform: scale(0.7);
+		}
 
 		.swiper-pagination-bullet {
 			width: 11px;
@@ -190,6 +205,9 @@
 		display: flex;
 		gap: 8px;
 
+		@media (max-width: 650px) {
+			display: none;
+		}
 	}
 
 	&__button {
@@ -227,14 +245,17 @@
 	}
 
 	@media (max-width: 650px) {
-		top: -100px;
+		top: -105px;
 		left: 0;
 		width: 100%;
 		padding: 15px;
+		padding-bottom: 20px;
 	}
 
 	@media (max-width: 400px) {
-		top: -130px;
+		top: -135px;
+		padding-bottom: 25px;
+		padding-top: 10px;
 	}
 
 	&__body {

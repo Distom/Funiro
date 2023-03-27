@@ -1,4 +1,4 @@
-import { closeSearch } from "./search";
+import { closeOtherWindows } from "./utils";
 
 export { closeMenu };
 
@@ -45,7 +45,7 @@ function toggleMenu() {
 	isBurgerMenuActive = !isBurgerMenuActive;
 
 	if (isBurgerMenuActive) {
-		closeSearch();
+		closeOtherWindows('menu');
 	}
 }
 

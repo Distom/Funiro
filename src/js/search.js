@@ -1,4 +1,4 @@
-import { closeMenu } from "./menu";
+import { closeOtherWindows } from "./utils";
 
 export { closeSearch };
 
@@ -22,7 +22,7 @@ function toggleSearchForm() {
 	isSearchActive = !isSearchActive;
 
 	if (isSearchActive) {
-		closeMenu();
+		closeOtherWindows('search');
 	}
 }
 
