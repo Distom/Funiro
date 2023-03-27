@@ -32,14 +32,19 @@
 	}
 }
 
+.lock {
+	overflow: hidden
+}
+
 body {
 	font-family: 'Gilroy';
 	font-weight: 500;
 	color: $textColor;
 	line-height: 1.5;
-	background: $beige;
+	background: #fff;
 }
 
 @import './ui';
 @import './sections-styles/header.scss';
 @import './sections-styles/furniture.scss';
+@import './sections-styles/advantages.scss';

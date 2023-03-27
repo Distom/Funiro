@@ -22,11 +22,27 @@
 	top: 0;
 	left: 0;
 	z-index: 100;
+	transition: background 0.3s;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100vw;
+		height: 60px;
+		top: 0;
+		left: -100vw;
+		background: rgba(249, 241, 231, 0.8);
+		backdrop-filter: blur(15.5px);
+		z-index: 8;
+		opacity: 0;
+		transition: left 0.3s, opacity 0.3s;
+	}
 
 	&__container {
 		min-height: 125px;
 		display: flex;
 		align-items: center;
+		transition: min-height 0.3s;
 
 		@media (max-width: 1000px) {
 			min-height: 90px;
@@ -100,6 +116,7 @@
 		height: 32px;
 		background-color: transparent;
 		display: none;
+		z-index: 10;
 
 		&::after,
 		&::before,
@@ -147,6 +164,26 @@
 		top: 50%;
 		transform: scale(1) translateY(-50%);
 	}
+
+	&_scroll {
+		background: rgba(249, 241, 231, 0.8);
+		backdrop-filter: blur(15.5px);
+
+		.header__container {
+			min-height: 90px;
+
+			@media (max-width: 1000px) {
+				min-height: 60px;
+			}
+		}
+	}
+
+	&_burger-menu {
+		&::before {
+			left: 0;
+			opacity: 1;
+		}
+	}
 }
 
 //###########################################################
@@ -170,7 +207,7 @@
 
 			.menu-header__link,
 			.menu-header__submenu-button {
-				opacity: 0.8;
+				color: $titleColor;
 			}
 
 			.menu-header__submenu-button {
@@ -194,9 +231,8 @@
 		@media (any-hover: hover) and (min-width: 600px) {
 			&:hover {
 
-				.menu-header__link,
-				.menu-header__submenu-button {
-					opacity: 0.8;
+				.menu-header__link {
+					color: $titleColor;
 				}
 
 				.menu-header__submenu-button {
@@ -227,7 +263,7 @@
 
 	&__link {
 		color: inherit;
-		transition: opacity 0.3s;
+		transition: color 0.3s;
 	}
 
 	&__submenu-button {
@@ -308,7 +344,7 @@
 
 		&:hover {
 			.search__input::placeholder {
-				opacity: 0.7;
+				opacity: 0.6;
 			}
 		}
 
@@ -336,7 +372,7 @@
 		transition: opacity 0.3s;
 
 		&:hover {
-			opacity: 0.7;
+			opacity: 0.5;
 		}
 
 		@media (max-width: 770px) {
@@ -386,7 +422,7 @@
 		position: relative;
 
 		&:hover {
-			opacity: 0.7;
+			opacity: 0.5;
 		}
 	}
 
@@ -415,7 +451,7 @@
 		position: relative;
 
 		&:hover {
-			opacity: 0.7;
+			opacity: 0.5;
 		}
 	}
 

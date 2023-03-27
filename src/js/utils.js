@@ -1,4 +1,10 @@
+import { useDynamicAdapt } from './dynamicAdapt'
+
 export { isMobile };
+
+
+
+useDynamicAdapt()
 
 const isMobile = {
 	Android: function () {
@@ -20,3 +26,4 @@ const isMobile = {
 		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 	}
 };
+

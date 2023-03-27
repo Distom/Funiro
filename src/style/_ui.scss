@@ -46,27 +46,49 @@
 	align-items: center;
 	justify-content: center;
 	padding: 15px;
+	border: 1px solid transparent;
+	transition: background-color 0.3s, border 0.3s, color 0.3s;
+	cursor: pointer;
 
+	&:hover,
 	&_white {
-		color: $orange;
 		background-color: #fff;
 		border: 1px solid $orange;
+		color: $orange;
+	}
+
+	&_white:hover {
+		background-color: $orange;
+		border: 1px solid transparent;
+		color: #fff;
 	}
 
 	&_swiper {
 		border-radius: 50%;
 		font-size: 20px;
-		width: 48px;
-		height: 48px;
+		min-width: 48px;
 		font-size: 12px;
 		padding: 0;
 		font-weight: 100;
 		transform: rotate(-90deg);
+		border: none;
+
+		&:hover {
+			color: $orange;
+			background-color: rgba(232, 159, 113, 0.3);
+			border: none;
+		}
 
 		&_lite {
 			color: $orange;
 			background-color: rgba(232, 159, 113, 0.3);
 			transform: rotate(90deg);
+
+			&:hover {
+				color: #fff;
+				background-color: $orange;
+				border: none;
+			}
 		}
 	}
 }
