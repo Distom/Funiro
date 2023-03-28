@@ -10,6 +10,7 @@ import './js/cart';
 import './js/favourite';
 import './js/profile';
 import './js/authentication';
+import './js/products';
 
 import { Window } from './js/Window';
 import { useDynamicAdapt } from './js/dynamic-adapt';

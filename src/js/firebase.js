@@ -29,6 +29,8 @@ import {
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { getPerformance } from 'firebase/performance';
 
+export { loadProducts };
+
 const firebaseConfig = {
 	apiKey: "AIzaSyDxRs5bfxod4r3VNena7w24o_2M2J4KNp0",
 	authDomain: "funiro-b8eaa.firebaseapp.com",
@@ -39,6 +41,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+let lastProductId = 0;
 
 async function loadProducts(count) {
 	// Create the query to load the last 12 messages and listen for new ones.
@@ -57,15 +60,18 @@ async function loadProducts(count) {
 		});
 	}); */
 
-	let q = query(collection(getFirestore(), 'products'), orderBy('id'), limit(count));
+	let q = query(collection(getFirestore(), 'products'), where('id', '>', lastProductId), orderBy('id'), limit(count));
 
 	let querySnapshot = await getDocs(q);
-	querySnapshot.forEach((doc) => {
-		console.log(doc.id, " => ", doc.data());
-	});
-}
+	lastProductId += count;
 
-loadProducts(4);
+	let products = querySnapshot.docs.map(doc => doc.data());
+	return products;
+	//console.log(products);
+	/* querySnapshot.forEach((doc) => {
+		console.log(doc.id, " => ", doc.data());
+	}); */
+}
 
 
 
