@@ -1,4 +1,4 @@
-import { closeOtherWindows } from "./utils";
+import { Window } from "./Window";
 
 export { closeMenu };
 
@@ -8,6 +8,7 @@ let header = document.querySelector('.header');
 let headerScrollClassAdded = false;
 let isBurgerMenuActive = false;
 
+Window.windows['menu'] = closeMenu;
 document.addEventListener('click', submenu);
 document.addEventListener('click', menuBurger);
 window.addEventListener('resize', updateMenuVisibility);
@@ -45,7 +46,7 @@ function toggleMenu() {
 	isBurgerMenuActive = !isBurgerMenuActive;
 
 	if (isBurgerMenuActive) {
-		closeOtherWindows('menu');
+		Window.closeOtherWindows('menu');
 	}
 }
 

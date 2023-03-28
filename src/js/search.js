@@ -1,8 +1,28 @@
-import { closeOtherWindows } from "./utils";
+import { Window } from "./Window";
+
+let searchWindow = new Window({
+	elemSelector: '.search__form',
+	elemActiveClass: 'search__form_active',
+	buttonSelector: '.search__button',
+	windowName: 'search'
+});
+
+let form = document.querySelector('.search__form');
+
+form.addEventListener('submit', event => event.preventDefault());
+window.addEventListener('resize', updateSearchVisibility);
+
+function updateSearchVisibility() {
+	if (innerWidth > 770) {
+		searchWindow.closeElem();
+	}
+}
+
+
+/* import { closeOtherWindows } from "./utils";
 
 export { closeSearch };
 
-let searchBtn = document.querySelector('.search__button');
 let form = document.querySelector('.search__form');
 let isSearchActive = false;
 
@@ -12,7 +32,7 @@ window.addEventListener('resize', updateSearchVisibility);
 
 function searchForm(event) {
 	let button = event.target.closest('.search__button');
-	if (searchBtn != button) return;
+	if (!button) return;
 
 	toggleSearchForm();
 }
@@ -40,4 +60,4 @@ function closeSearch() {
 
 function prevent(event) {
 	event.preventDefault();
-}
+} */

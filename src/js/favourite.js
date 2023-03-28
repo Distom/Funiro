@@ -1,9 +1,21 @@
-import { closeOtherWindows } from "./utils";
+import { Window } from "./Window";
+
+let favouriteWindow = new Window({
+	elemSelector: '.favourite',
+	elemActiveClass: 'favourite_active',
+	buttonSelector: '.favourite__button',
+	windowName: 'favourite'
+});
+
+
+
+
+
+/* import { closeOtherWindows } from "./utils";
 
 export { closeFavourite };
 
 let favouriteElem = document.querySelector('.favourite');
-let favouriteCounter = document.querySelector('.favourite__counter');
 let isActiveFavourite = false;
 
 document.addEventListener('click', favouriteHandler);
@@ -28,4 +40,4 @@ function closeFavourite() {
 	if (isActiveFavourite) {
 		toggleFavourite();
 	}
-}
+} */

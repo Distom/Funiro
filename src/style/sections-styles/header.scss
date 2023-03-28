@@ -376,13 +376,13 @@
 			top: -100%;
 			left: 0;
 			transition: opacity 0.3s, top 0.3s;
+			max-width: none;
+			width: 100vw;
 		}
 
 		&_active {
 			top: 60px;
 			opacity: 1;
-			width: 100vw;
-			max-width: none;
 		}
 	}
 
@@ -477,10 +477,29 @@
 		gap: 15px;
 	}
 
+	&__empty-text {
+		display: none;
+	}
+
 	&_active {
 		.favourite__block {
 			right: max(calc((100vw - 1270px) / 2), 15px);
 			opacity: 1;
+		}
+	}
+
+	&_empty {
+		.favourite__empty-text {
+			display: block;
+		}
+
+		.favourite__block {
+			width: 300px;
+			text-align: center;
+		}
+
+		.favourite__products {
+			display: none;
 		}
 	}
 }
@@ -580,10 +599,60 @@
 		width: 245px;
 	}
 
+	&__unlog-text {
+		display: none;
+		text-align: center;
+	}
+
+	&__empty-text {
+		display: none;
+	}
+
 	&_active {
 		.cart__block {
 			right: max(calc((100vw - 1270px) / 2), 15px);
 			opacity: 1;
+		}
+	}
+
+	&_empty {
+		.cart__block {
+			width: 300px;
+			text-align: center;
+		}
+
+		.cart__order-button {
+			display: none;
+		}
+
+		.cart__products {
+			display: none;
+		}
+
+		.cart__empty-text {
+			display: block;
+		}
+	}
+
+	&_disabled {
+		.cart__block {
+			width: 300px;
+		}
+
+		.cart__order-button {
+			display: none;
+		}
+
+		.cart__products {
+			display: none;
+		}
+
+		.cart__unlog-text {
+			display: block;
+		}
+
+		.cart__empty-text {
+			display: none;
 		}
 	}
 }
@@ -650,7 +719,7 @@
 		right: -400px;
 		opacity: 0;
 		transition: top 0.3s, right 0.3s, opacity 0.3s;
-		width: 350px;
+		width: 200px;
 		max-height: 400px;
 		overflow: auto;
 		background: rgba(255, 255, 255, 1);
@@ -660,18 +729,6 @@
 
 		@media (max-width: 1000px) {
 			top: 75px;
-		}
-	}
-
-	&__button {
-		min-height: 15px;
-		padding: 5px 35px;
-		margin: 0 auto;
-
-		&_login {}
-
-		&_logout {
-			display: none;
 		}
 	}
 
@@ -690,6 +747,7 @@
 	}
 
 	&__image-wrapper {
+		display: none;
 		padding: 0 0 28.57% 0;
 		/* 100/350 */
 		/* 75/400 */
@@ -718,7 +776,37 @@
 		word-break: break-all;
 	}
 
-	&__buttons {
-		margin-top: 15px;
+	&__buttons {}
+
+	&__button {
+		min-height: 15px;
+		padding: 5px 35px;
+		margin: 0 auto;
+
+		&_login {}
+
+		&_logout {
+			display: none;
+		}
+	}
+
+	&_logined {
+		width: 350px;
+
+		.profile__image-wrapper {
+			display: block;
+		}
+
+		.profile__buttons {
+			margin-top: 15px;
+		}
+
+		.profile__button_logout {
+			display: block;
+		}
+
+		.profile__button_login {
+			display: none;
+		}
 	}
 }

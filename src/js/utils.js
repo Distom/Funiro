@@ -1,30 +1,4 @@
-import { useDynamicAdapt } from './dynamicAdapt';
-
-import { closeCart } from './cart';
-import { closeFavourite } from './favourite';
-import { closeMenu } from './menu';
-import { closeSearch } from './search';
-import { closeProfile } from './profile';
-
-export { isMobile, closeOtherWindows };
-
-function closeOtherWindows(currentWindow) {
-	let windows = {
-		cart: closeCart,
-		favourite: closeFavourite,
-		menu: closeMenu,
-		search: closeSearch,
-		profile: closeProfile,
-	}
-
-	Object.keys(windows).forEach(funcTitle => {
-		if (funcTitle != currentWindow) {
-			windows[funcTitle]();
-		}
-	})
-}
-
-useDynamicAdapt()
+export { isMobile };
 
 const isMobile = {
 	Android: function () {

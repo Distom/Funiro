@@ -73,7 +73,7 @@
 					</form>
 				</div>
 				<div class="header__icons">
-					<div class="header__favourite favourite">
+					<div class="header__favourite favourite favourite_empty">
 						<button class="favourite__button _icon-favourite">
 							<span class="favourite__counter counter">1</span>
 						</button>
@@ -113,9 +113,13 @@
 								</li>
 
 							</ul>
+							<p class="favourite__empty-text">
+								The wishlist is empty<br>
+								Add something to the wishlist
+							</p>
 						</div>
 					</div>
-					<div class="header__cart cart">
+					<div class="header__cart cart cart_empty">
 						<button class="cart__button _icon-cart">
 							<span class="cart__counter counter">99</span>
 						</button>
@@ -145,11 +149,18 @@
 
 							</ul>
 							<button class="cart__order-button button">Checkout</button>
+							<p class="cart__unlog-text">
+								Please log in to use the cart
+							</p>
+							<p class="cart__empty-text">
+								The cart is empty<br>
+								Add something to the cart
+							</p>
 						</div>
 					</div>
 					<div class="header__account account">
 						<div class="account__image-wrapper _bgi-wrapper">
-							<img src="img/header/photo.png" alt="User avatar" class="account__image _bgi">
+							<img src="img/header/avatar.png" alt="User avatar" class="account__image _bgi">
 						</div>
 						<div class="account__block profile">
 							<div class="profile__body">
@@ -157,13 +168,13 @@
 									<img src="img/header/avatar.png" alt="user photo" class="profile__image _bgi">
 								</div>
 								<div class="profile__information">
-									<p class="profile__name">Дима Стехов</p>
-									<p class="profile__mail">dimastekhov@gmail.com</p>
+									<p class="profile__name"></p>
+									<p class="profile__mail"></p>
 								</div>
 							</div>
 							<div class="profile__buttons">
-								<button class="account__button account__button_login button">Log in</button>
-								<button class="account__button account__button_logout button button_white">Log out</button>
+								<button class="profile__button profile__button_login button">Log in</button>
+								<button class="profile__button profile__button_logout button button_white">Log out</button>
 							</div>
 						</div>
 

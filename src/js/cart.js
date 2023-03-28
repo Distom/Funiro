@@ -1,9 +1,19 @@
-import { closeOtherWindows } from "./utils";
+import { Window } from "./Window";
+
+let cartWindow = new Window({
+	elemSelector: '.cart',
+	elemActiveClass: 'cart_active',
+	buttonSelector: '.cart__button',
+	windowName: 'cart'
+});
+
+
+
+/* import { closeOtherWindows } from "./utils";
 
 export { closeCart };
 
 let cartElem = document.querySelector('.cart');
-let cartCounter = document.querySelector('.cart__counter');
 let isActiveCart = false;
 
 document.addEventListener('click', cartHandler);
@@ -28,4 +38,4 @@ function closeCart() {
 	if (isActiveCart) {
 		toggleCart();
 	}
-}
+} */

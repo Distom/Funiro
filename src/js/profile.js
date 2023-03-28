@@ -1,8 +1,20 @@
-import { closeOtherWindows } from "./utils";
+import { Window } from "./Window";
+
+let profileWindow = new Window({
+	elemSelector: '.account',
+	elemActiveClass: 'account_active',
+	buttonSelector: '.account__image-wrapper',
+	windowName: 'profile',
+	missclickSelector: '.profile'
+});
+
+
+
+/* import { closeOtherWindows } from "./utils";
 
 export { closeProfile };
 
-let profileElem = document.querySelector('.account');
+let accountElem = document.querySelector('.account');
 let isActiveProfile = false;
 
 document.addEventListener('click', profileHandler);
@@ -15,11 +27,14 @@ function profileHandler(event) {
 }
 
 function toggleProfile() {
-	profileElem.classList.toggle('account_active');
+	accountElem.classList.toggle('account_active');
 	isActiveProfile = !isActiveProfile;
 
 	if (isActiveProfile) {
 		closeOtherWindows('profile');
+		document.addEventListener('click', closeProfileOnClick);
+	} else {
+		document.removeEventListener('click', closeProfileOnClick);
 	}
 }
 
@@ -28,3 +43,9 @@ function closeProfile() {
 		toggleProfile();
 	}
 }
+
+function closeProfileOnClick(event) {
+	if (event.target.closest('.profile')) return;
+	closeProfile();
+}
+ */
