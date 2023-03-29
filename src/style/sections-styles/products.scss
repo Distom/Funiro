@@ -20,6 +20,7 @@
 	&__button {
 		min-width: 245px;
 		margin: 0 auto;
+		transition: background-color 0.3s, border 0.3s, color 0.3s, filter 0.3s, opacity 1s;
 	}
 }
 

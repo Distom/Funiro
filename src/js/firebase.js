@@ -59,7 +59,6 @@ async function loadProducts(count) {
 			}
 		});
 	}); */
-
 	let q = query(collection(getFirestore(), 'products'), where('id', '>', lastProductId), orderBy('id'), limit(count));
 
 	let querySnapshot = await getDocs(q);

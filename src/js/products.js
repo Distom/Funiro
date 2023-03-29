@@ -1,10 +1,48 @@
 import { loadProducts } from "./firebase";
 
+let productsListElem = document.querySelector('.products__body');
+let productsBtn = document.querySelector('.products__button');
 
-async function addProductsOnPage(count) {
-	let productsListElem = document.querySelector('.products__body');
-	let html = await getProductsHTML(count);
-	productsListElem.innerHTML = html;
+productsBtn.addEventListener('click', onProductsBtnClick);
+addProductsLine();
+
+async function onProductsBtnClick() {
+	productsBtn.disabled = true;
+	let result = await addProductsLine();
+
+	if (!result) {
+		productsBtn.style.opacity = 0;
+		productsBtn.addEventListener('transitionend', () => {
+			productsBtn.style.display = 'none';
+		});
+	} else {
+		productsBtn.disabled = false;
+	}
+}
+
+async function addProductsLine() {
+	let columnsCount = 4;
+	let currentProductsCount = productsListElem.children.length;
+	let requiredCount = 0;
+
+	switch (true) {
+		case innerWidth < 632:
+			columnsCount = 1;
+			break;
+		case innerWidth < 949:
+			columnsCount = 2;
+			break;
+		case innerWidth < 1266:
+			columnsCount = 3;
+			break;
+	}
+
+	let roundedCount = Math.ceil(currentProductsCount / columnsCount) * columnsCount;
+	requiredCount = roundedCount - currentProductsCount || columnsCount;
+
+	let html = await getProductsHTML(requiredCount);
+	productsListElem.insertAdjacentHTML('beforeend', html);
+	return !!html;
 }
 
 async function getProductsHTML(count) {
@@ -19,7 +57,7 @@ function getProductHTML(productObject) {
 	let productHTML = `
 	<li class="products__card product-card">
 		<div class="product-card__image-wrapper _bgi-wrapper">
-			<img src="${productObject.imageUrl}" alt="" class="product-card__image _bgi">
+			<img src="${productObject.imageUrl}" alt="${productObject.description}" class="product-card__image _bgi">
 		</div>
 		<h3 class="product-card__title">${productObject.title}</h3>
 		<p class="product-card__text">${productObject.description}</p>
@@ -42,11 +80,6 @@ function getProductHTML(productObject) {
 	`
 
 	function getProductPricesHTML() {
-		/* let num = 1234567890.1234;
-		let formattedNum = num.toLocaleString('en-US', { maximumFractionDigits: 4 });
-		formattedNum = formattedNum.replace(',', '.');
-		console.log(formattedNum); // "1.234.567.890,1234" */
-
 		let html = `
 		<ul class="product-card__prices">
 			<li class="product-card__actual-price">Rp ${getFormatedPrice(productObject.actualPrice)}</li>`;
@@ -62,7 +95,7 @@ function getProductHTML(productObject) {
 		function getFormatedPrice(price) {
 			return price
 				.toLocaleString('en-US', { maximumFractionDigits: 4 })
-				.replace(',', '.');
+				.replace(/,/g, '.');
 		}
 	}
 
