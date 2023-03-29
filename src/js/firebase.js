@@ -12,14 +12,15 @@ import {
 	query,
 	orderBy,
 	limit,
+	getDocs,
+	where,
+	getDoc,
+	doc,
 	onSnapshot,
 	setDoc,
 	updateDoc,
-	doc,
 	serverTimestamp,
 } from 'firebase/firestore';
-
-import { where, getDocs } from "firebase/firestore";
 import {
 	getStorage,
 	ref,
@@ -29,7 +30,7 @@ import {
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { getPerformance } from 'firebase/performance';
 
-export { loadProducts };
+export { loadProducts, loadProduct };
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDxRs5bfxod4r3VNena7w24o_2M2J4KNp0",
@@ -44,7 +45,6 @@ const app = initializeApp(firebaseConfig);
 let lastProductId = 0;
 
 async function loadProducts(count) {
-	// Create the query to load the last 12 messages and listen for new ones.
 	/* const recentMessagesQuery = query(collection(getFirestore(), 'messages'), orderBy('timestamp', 'desc'), limit(12));
 
 	// Start listening to the query.
@@ -72,8 +72,6 @@ async function loadProducts(count) {
 	}); */
 }
 
-
-
 /* let query = query(collection(getFirestore(), 'products'), orderBy('timestamp', 'desc'));
 
 const querySnapshot = await getDocs(q);
@@ -82,3 +80,25 @@ querySnapshot.forEach((doc) => {
 	console.log(doc.id, " => ", doc.data());
 });
  */
+
+async function loadProduct(id) {
+	let docRef = doc(getFirestore(), 'products', id.toString())
+	let docSnap = await getDoc(docRef);
+
+	if (docSnap.exists()) {
+		return docSnap.data();
+	} else {
+		console.log('Product not found');
+	}
+}
+
+
+/* const docRef = doc(db, "cities", "SF");
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+	console.log("Document data:", docSnap.data());
+} else {
+	// doc.data() will be undefined in this case
+	console.log("No such document!");
+} */

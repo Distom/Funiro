@@ -1,41 +1,22 @@
-import { Window } from "./Window";
+import { WindowList } from "./WindowList";
 
-let cartWindow = new Window({
+let cartProductsList = document.querySelector('.cart__products');
+let cartBtn = document.querySelector('.cart__button')
+let productAdding = false;
+
+let cartWindow = new WindowList({
 	elemSelector: '.cart',
 	elemActiveClass: 'cart_active',
 	buttonSelector: '.cart__button',
-	windowName: 'cart'
+	windowName: 'cart',
+	listSelector: '.cart__products',
+	listEmptyClass: 'cart_empty',
+	listCounterSelector: '.cart__counter',
 });
 
-
-
-/* import { closeOtherWindows } from "./utils";
-
-export { closeCart };
-
-let cartElem = document.querySelector('.cart');
-let isActiveCart = false;
-
-document.addEventListener('click', cartHandler);
-
-function cartHandler(event) {
-	let button = event.target.closest('.cart__button');
+async function addToCart(event) {
+	let button = event.target.closest('.product-card__add-button');
 	if (!button) return;
 
-	toggleCart();
+
 }
-
-function toggleCart() {
-	cartElem.classList.toggle('cart_active');
-	isActiveCart = !isActiveCart;
-
-	if (isActiveCart) {
-		closeOtherWindows('cart');
-	}
-}
-
-function closeCart() {
-	if (isActiveCart) {
-		toggleCart();
-	}
-} */

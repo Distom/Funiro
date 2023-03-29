@@ -8,6 +8,7 @@ addProductsLine();
 
 async function onProductsBtnClick() {
 	productsBtn.disabled = true;
+	console.log('productsClick');
 	let result = await addProductsLine();
 
 	if (!result) {
@@ -55,7 +56,7 @@ async function getProductsHTML(count) {
 
 function getProductHTML(productObject) {
 	let productHTML = `
-	<li class="products__card product-card">
+	<li data-id="${productObject.id}" class="products__card product-card">
 		<div class="product-card__image-wrapper _bgi-wrapper">
 			<img src="${productObject.imageUrl}" alt="${productObject.description}" class="product-card__image _bgi">
 		</div>
@@ -65,11 +66,11 @@ function getProductHTML(productObject) {
 		<div class="product-card__buttons">
 			<button class="product-card__add-button button button_white">Add to cart</button>
 			<div class="product-card__icon-buttons">
-				<button class="product-card__icon-button product-icon-button">
+				<button class="product-card__icon-button product-icon-button product-icon-button_share">
 					<i class="product-icon-button__icon _icon-share"></i>
 					<span class="product-icon-button__text">Share</span>
 				</button>
-				<button class="product-card__icon-button product-icon-button">
+				<button class="product-card__icon-button product-icon-button product-icon-button_favourite">
 					<i class="product-icon-button__icon _icon-favourite"></i>
 					<span class="product-icon-button__text">Like</span>
 				</button>
