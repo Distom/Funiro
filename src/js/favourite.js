@@ -1,5 +1,7 @@
 import { WindowList } from "./WindowList";
 import { loadProduct } from "./firebase";
+import { moveProductImage } from "./products";
+import { moveToCart } from "./cart";
 
 
 let favouriteProductsList = document.querySelector('.favourite__products');
@@ -18,7 +20,8 @@ let favouriteWindow = new WindowList({
 
 document.addEventListener('click', addToFavourite);
 document.addEventListener('click', removeFromFavourite);
-addProductsToListHTML();
+document.addEventListener('click', onMoveToCartClick);
+addProductsToFavouriteListHTML();
 
 
 async function addToFavourite(event) {
@@ -33,8 +36,8 @@ async function addToFavourite(event) {
 
 	productAdding = true;
 	addToLocaleStorage(productId);
-	await moveImage(imageElem, favouriteBtn);
-	await addProductsToListHTML();
+	await moveProductImage(imageElem, favouriteBtn);
+	await addProductsToFavouriteListHTML();
 	productAdding = false;
 }
 
@@ -91,7 +94,7 @@ async function getProductHTML(productId) {
 	return html;
 }
 
-async function addProductsToListHTML() {
+async function addProductsToFavouriteListHTML() {
 	let userFavouriteProducts = Array.from(getUserFavouriteProductsSet());
 	userFavouriteProducts.forEach(async productId => {
 		if (favouriteProductsListIncudes(productId)) return;
@@ -102,42 +105,21 @@ async function addProductsToListHTML() {
 	});
 }
 
-function moveImage(imageElem, targetElem) {
-	let imageRect = imageElem.getBoundingClientRect();
-	let targetRect = targetElem.getBoundingClientRect();
-
-	let imageCloneElem = imageElem.cloneNode(true);
-
-	imageCloneElem.style.cssText = `
-		position: fixed;
-		width: ${imageElem.offsetWidth}px;
-		height: ${imageElem.offsetHeight}px;
-		top: ${imageRect.top}px;
-		left: ${imageRect.left}px;
-		transition: top 0.7s ease-out, left 0.7s ease-out, transform 0.7s ease-out, opacity 0.4s 0.2s ease-out;
-		transform: scale(1);
-		padding: 0;
-		margin: 0;
-	`;
-	document.body.append(imageCloneElem);
-
-	setTimeout(() => {
-		imageCloneElem.style.transform = 'scale(0)';
-		imageCloneElem.style.top = targetRect.top - imageElem.offsetHeight / 2 + 'px';
-		imageCloneElem.style.left = targetRect.right - imageElem.offsetWidth / 2 + 'px';
-		imageCloneElem.style.zIndex = 9999;
-		imageCloneElem.style.opacity = 0;
-	});
-
-	return new Promise(resolve => {
-		imageCloneElem.addEventListener('transitionend', () => {
-			resolve();
-			imageCloneElem.remove();
-		}, { once: true });
-		resolve();
-	});
-}
-
 function favouriteProductsListIncudes(productId) {
 	return favouriteProductsList.querySelector(`[data-id="${productId}"]`);
+}
+
+async function onMoveToCartClick(event) {
+	let button = event.target.closest('.favourite-product__move-button');
+	if (!button) return;
+
+	let productElem = button.closest('.favourite-product');
+	let productId = productElem.dataset.id;
+
+	let isMoved = await moveToCart(productId);
+	if (!isMoved) return;
+	console.log(isMoved);
+
+	removeFromLocaleStorage(productId);
+	productElem.remove();
 }

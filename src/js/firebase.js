@@ -32,7 +32,12 @@ import {
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { getPerformance } from 'firebase/performance';
 
-export { loadProducts, loadProduct };
+export {
+	loadProducts,
+	loadProduct,
+	updateProductInUserCart,
+	getUserCart
+};
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDxRs5bfxod4r3VNena7w24o_2M2J4KNp0",
@@ -134,6 +139,7 @@ if (docSnap.exists()) {
 } */
 
 async function updateProductInUserCart(productId, addProduct = true) {
+	if (!getAuth().currentUser) return;
 	let userId = getAuth().currentUser.uid;
 	let cartDocRef = doc(getFirestore(), 'userCarts', userId);
 
@@ -156,6 +162,7 @@ async function updateProductInUserCart(productId, addProduct = true) {
 		console.warn('Error updating product in cart Firebase ' + error);
 		return;
 	}
+	return true;
 }
 
 async function getCartDocSnap(cartDocRef) {
@@ -169,4 +176,17 @@ async function getCartDocSnap(cartDocRef) {
 	}
 
 	return cartDocSnap;
+}
+
+async function getUserCart() {
+	let userId = getAuth().currentUser.uid;
+	let cartDocRef = doc(getFirestore(), 'userCarts', userId);
+	let cartDocSnap = await getCartDocSnap(cartDocRef);
+	if (!cartDocSnap) return;
+
+	if (cartDocSnap.exists()) {
+		return cartDocSnap.data();
+	} else {
+		return {};
+	}
 }

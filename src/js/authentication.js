@@ -5,6 +5,7 @@ import {
 	signInWithPopup,
 	signOut,
 } from 'firebase/auth';
+import { addAllProductsToCartListHTML, clearCartListHTML } from './cart';
 
 let accountElem = document.querySelector('.account');
 let cartElem = document.querySelector('.cart');
@@ -48,21 +49,19 @@ function getUserMail() {
 	return getAuth().currentUser.email;
 }
 
-/* function isUserSignedIn() {
-	return !!getAuth().currentUser;
-} */
-
 function authStateObserver(user) {
 	if (user) {
 		accontImageElem.src = getProfilePicUrl();
 		updateProfileElemValues();
 		signOutBtn.disabled = false;
 		cartElem.classList.remove('cart_disabled');
+		addAllProductsToCartListHTML();
 	} else {
 		accontImageElem.src = 'src/img/header/avatar.png';
 		resetProfileElemValues();
 		signInBtn.disabled = false;
 		cartElem.classList.add('cart_disabled');
+		clearCartListHTML();
 	}
 }
 

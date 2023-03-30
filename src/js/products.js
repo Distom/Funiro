@@ -1,5 +1,7 @@
 import { loadProducts } from "./firebase";
 
+export { moveProductImage };
+
 let productsListElem = document.querySelector('.products__body');
 let productsBtn = document.querySelector('.products__button');
 
@@ -127,4 +129,42 @@ function getProductHTML(productObject) {
 	}
 
 	return productHTML;
+}
+
+function moveProductImage(imageElem, targetElem) {
+	let imageRect = imageElem.getBoundingClientRect();
+	let targetRect = targetElem.getBoundingClientRect();
+
+	let imageCloneElem = imageElem.cloneNode(true);
+
+	imageCloneElem.style.cssText = `
+		position: fixed;
+		width: ${imageElem.offsetWidth}px;
+		height: ${imageElem.offsetHeight}px;
+		top: ${imageRect.top}px;
+		left: ${imageRect.left}px;
+		transition: top 0.7s ease-out, left 0.7s ease-out, transform 0.7s ease-out, opacity 0.4s 0.2s ease-out;
+		transform: scale(1);
+		padding: 0;
+		margin: 0;
+	`;
+	document.body.append(imageCloneElem);
+
+	setTimeout(() => {
+		imageCloneElem.style.transform = 'scale(0)';
+		imageCloneElem.style.top = targetRect.top - imageElem.offsetHeight / 2 + 'px';
+		imageCloneElem.style.left = targetRect.right - imageElem.offsetWidth / 2 + 'px';
+		imageCloneElem.style.zIndex = 9999;
+		imageCloneElem.style.opacity = 0;
+	}, 5);
+
+	return new Promise(resolve => {
+		imageCloneElem.addEventListener('transitionend', function onEnd(event) {
+			if (event.propertyName != 'top') return;
+
+			resolve();
+			imageCloneElem.remove();
+			imageCloneElem.removeEventListener('transitionend', onEnd)
+		});
+	});
 }
