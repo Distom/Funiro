@@ -8,10 +8,9 @@ addProductsLine();
 
 async function onProductsBtnClick() {
 	productsBtn.disabled = true;
-	console.log('productsClick');
 	let result = await addProductsLine();
 
-	if (!result) {
+	if (result === 'end') {
 		productsBtn.style.opacity = 0;
 		productsBtn.addEventListener('transitionend', () => {
 			productsBtn.style.display = 'none';
@@ -42,12 +41,19 @@ async function addProductsLine() {
 	requiredCount = roundedCount - currentProductsCount || columnsCount;
 
 	let html = await getProductsHTML(requiredCount);
+	if (html === '') {
+		return 'end';
+	} else if (html === false) {
+		return;
+	}
+
 	productsListElem.insertAdjacentHTML('beforeend', html);
-	return !!html;
 }
 
 async function getProductsHTML(count) {
 	let products = await loadProducts(count);
+	if (!products) return false;
+
 	let productsHTML = products.reduce((html, product) => {
 		return html += getProductHTML(product);
 	}, '');

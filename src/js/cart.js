@@ -18,5 +18,5 @@ async function addToCart(event) {
 	let button = event.target.closest('.product-card__add-button');
 	if (!button) return;
 
-
+	
 }

@@ -97,6 +97,7 @@ async function addProductsToListHTML() {
 		if (favouriteProductsListIncudes(productId)) return;
 
 		let html = await getProductHTML(productId);
+		if (!html) return;
 		favouriteProductsList.insertAdjacentHTML('beforeend', html);
 	});
 }
