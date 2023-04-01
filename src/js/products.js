@@ -6,7 +6,7 @@ let productsListElem = document.querySelector('.products__body');
 let productsBtn = document.querySelector('.products__button');
 
 productsBtn.addEventListener('click', onProductsBtnClick);
-addProductsLine();
+//addProductsLine();
 
 async function onProductsBtnClick() {
 	productsBtn.disabled = true;

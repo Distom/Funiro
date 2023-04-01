@@ -5,7 +5,7 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 // init Swiper:
-const swiper = new Swiper('.slider-furniture', {
+const furnitureSwiper = new Swiper('.slider-furniture', {
 	// Optional parameters
 	//direction: 'vertical',
 	loop: true,
@@ -29,5 +29,27 @@ const swiper = new Swiper('.slider-furniture', {
 	navigation: {
 		nextEl: '.slider-furniture__button_next',
 		prevEl: '.slider-furniture__button_prev',
+	},
+});
+
+const roomsSwiper = new Swiper('.slider-rooms', {
+	loop: true,
+	parallax: true,
+	spaceBetween: 32,
+	speed: 800,
+	slidesPerView: 1,
+	watchOverflow: true,
+	loopedSlides: 2,
+	centeredSlides: true,
+
+	// If we need pagination
+	pagination: {
+		el: '.slider-rooms__pagination',
+	},
+
+	// Navigation arrows
+	navigation: {
+		nextEl: '.slider-rooms__button_next',
+		prevEl: '.slider-rooms__button_prev',
 	},
 });

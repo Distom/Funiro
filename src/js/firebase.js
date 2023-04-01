@@ -142,7 +142,6 @@ async function updateProductInUserCart(productId, addProduct = true) {
 	if (!getAuth().currentUser) return;
 	let userId = getAuth().currentUser.uid;
 	let cartDocRef = doc(getFirestore(), 'userCarts', userId);
-
 	let productCount = 0;
 	let cartDocSnap = await getCartDocSnap(cartDocRef);
 	if (!cartDocSnap) return;
