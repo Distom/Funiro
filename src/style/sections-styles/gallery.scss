@@ -1,0 +1,153 @@
+.share {
+	margin-bottom: 87px;
+
+	&__container {}
+
+	&__subtitle {
+		color: #616161;
+		text-align: center;
+		margin-bottom: 8px;
+	}
+
+	&__title {
+		color: $titleColor;
+		text-align: center;
+	}
+
+	&__gallery {
+		margin-left: calc(170 / 1240 * -100%);
+	}
+}
+
+.gallery-share {
+	display: flex;
+	width: calc(1800 / 1240 * 100%);
+	gap: 16px;
+	margin-top: -24px;
+	position: relative;
+	transition: left 0.1s;
+
+	&__first-block {
+		flex: 0 0 calc(741 / 1800 * 100%);
+	}
+
+	&__second-block {
+		flex: 0 0 calc(296 / 1800 * 100%);
+	}
+
+	&__third-block {
+		flex: 0 0 calc(731 / 1800 * 100%);
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.share-first-block {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&__first-row {
+		display: flex;
+		gap: 16px;
+		align-items: flex-end;
+	}
+
+	&__second-row {
+		display: flex;
+		gap: 16px;
+	}
+}
+
+.share-first-block-first-row {
+	&__first-image-wrapper {
+		flex: 0 0 calc(274 / 741 * 100%);
+		padding: 0 0 calc(382 / 741 * 100%) 0;
+	}
+
+	&__first-image {}
+
+	&__second-image-wrapper {
+		flex: 1 0 auto;
+		padding: 0 0 calc(312 / 741 * 100%) 0;
+	}
+
+	&__second-image {}
+}
+
+.share-first-block-second-row {
+	&__first-image-wrapper {
+		flex: 0 0 calc(381 / 741 * 100%);
+		padding: 0 0 calc(323 / 741 * 100%) 0;
+	}
+
+	&__first-image {}
+
+	&__second-image-wrapper {
+		flex: 1 0 auto;
+		padding: 0 0 calc(242 / 741 * 100%) 0;
+	}
+
+	&__second-image {}
+}
+
+.share-second-block {
+	display: flex;
+	align-items: center;
+
+	&__image-wrapper {
+		flex: 1 0 auto;
+		padding: 0 0 calc(392 / 296 * 100%) 0;
+	}
+
+	&__image {}
+}
+
+.share-third-block {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&__first-row {
+		display: flex;
+		gap: 16px;
+		align-items: flex-end;
+	}
+
+	&__second-row {
+		display: flex;
+		gap: 16px;
+	}
+}
+
+.share-third-block-first-row {
+	&__first-image-wrapper {
+		flex: 0 0 calc(290 / 731 * 100%);
+		padding: 0 0 calc(348 / 731 * 100%) 0;
+	}
+
+	&__first-image {}
+
+	&__second-image-wrapper {
+		flex: 1 0 auto;
+		padding: 0 0 calc(433 / 731 * 100%) 0;
+	}
+
+	&__second-image {}
+}
+
+.share-third-block-second-row {
+	&__first-image-wrapper {
+		flex: 0 0 calc(178 / 731 * 100%);
+		padding: 0 0 calc(242 / 731 * 100%) 0;
+	}
+
+	&__first-image {}
+
+	&__second-image-wrapper {
+		flex: 0 0 calc(258 / 731 * 100%);
+		padding: 0 0 calc(196 / 731 * 100%) 0;
+	}
+
+	&__second-image {}
+}

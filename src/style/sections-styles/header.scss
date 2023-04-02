@@ -110,6 +110,11 @@
 		align-items: center;
 		@include adaptiv-value('margin-left', 32, 16, 1);
 		@include adaptiv-value('gap', 32, 16, 1);
+		@include adaptiv-value('margin-right', -32, -16, 1);
+
+		@media (max-width: 600px) {
+			margin-right: 0;
+		}
 	}
 
 	&__favourite {

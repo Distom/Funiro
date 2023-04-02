@@ -20,6 +20,7 @@
 
 ._bgi-wrapper {
 	position: relative;
+	height: 0;
 
 	._bgi {
 		content: '';
@@ -51,4 +52,4 @@ body {
 @import './sections-styles/products.scss';
 @import './sections-styles/rooms.scss';
 @import './sections-styles/tips.scss';
-@import './sections-styles/galery.scss';
+@import './sections-styles/gallery.scss';
