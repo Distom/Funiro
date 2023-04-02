@@ -64,6 +64,10 @@
 			padding-right: 0;
 		}
 
+		@media (max-width: 360px) {
+			margin: 0 -15px;
+		}
+
 		&::before {
 			content: '';
 			width: 100vw;
@@ -178,6 +182,11 @@
 		position: absolute;
 		left: 24px;
 		bottom: 24px;
+
+		@media (max-width: 340px) {
+			left: 15px;
+			bottom: 15px;
+		}
 	}
 }
 
