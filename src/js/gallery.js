@@ -1,18 +1,47 @@
 import lightGallery from "lightgallery";
 
 let galleryElem = document.querySelector('.gallery-share');
+let galleryWrapper = document.querySelector('.share__gallery-wrapper');
 let galleryWidth = galleryElem.offsetWidth;
 let left = 170;
 let right = 390;
 let resetTimeout;
+let listenersAdded = false;
+let galleryScrollX = 170 / 1800 * 1400;
 
-galleryElem.addEventListener('mouseenter', onEnter);
-galleryElem.addEventListener('mouseleave', onLeave);
+window.addEventListener('resize', onResize);
+onResize();
 
 lightGallery(document.querySelector('.gallery-share'), {
 	selector: '._bgi-wrapper',
 	speed: 800,
 });
+
+function onResize() {
+	if (window.innerWidth > 1000 && !listenersAdded) {
+		galleryElem.addEventListener('mouseenter', onEnter);
+		galleryElem.addEventListener('mouseleave', onLeave);
+		galleryElem.style.marginLeft = '';
+		listenersAdded = true;
+	} else if (window.innerWidth <= 1000) {
+		if (listenersAdded) {
+			galleryElem.removeEventListener('mouseenter', onEnter);
+			galleryElem.removeEventListener('mouseleave', onLeave);
+			galleryElem.removeEventListener('mousemove', onMouseOver);
+			resetGallery();
+			listenersAdded = false;
+		}
+		requestAnimationFrame(centerGallery);
+	}
+}
+
+function centerGallery() {
+	console.log('center');
+	let currentWindowWidth = window.innerWidth;
+	let shift = (1000 - currentWindowWidth) / 2;
+	let scrollX = galleryScrollX + shift;
+	galleryWrapper.scrollTo(scrollX, 0);
+}
 
 function onEnter() {
 	clearInterval(resetTimeout);

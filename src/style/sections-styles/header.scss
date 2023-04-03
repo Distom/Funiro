@@ -292,12 +292,17 @@
 
 		@media (max-width: 600px) {
 			flex-wrap: wrap;
-			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 			&_active {
 				.submenu {
 					position: static;
-					height: 100px;
+					height: fit-content;
+					font-size: 1.2rem;
+				}
+
+				.submenu__link {
+					display: block;
+					width: 100%;
 				}
 			}
 		}

@@ -1,4 +1,6 @@
 .submenu {
+	display: flex;
+	flex-direction: column;
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
@@ -28,6 +30,7 @@
 		overflow: hidden;
 		font-weight: 500;
 		transition: top 0.2s, opacity 0.3s, height 0.3s;
+		gap: 10px;
 	}
 }
 

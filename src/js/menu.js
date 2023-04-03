@@ -5,8 +5,11 @@ export { closeMenu };
 let menuBtn = document.querySelector('.header__menu-button');
 let menu = document.querySelector('.menu-header');
 let header = document.querySelector('.header');
+let menuListsArr = Array.from(document.querySelectorAll('.menu-header__list-item'));
 let headerScrollClassAdded = false;
 let isBurgerMenuActive = false;
+let menuMediaWidth = 600;
+let submenusClosed = false;
 
 Window.windows['menu'] = closeMenu;
 document.addEventListener('click', submenu);
@@ -56,7 +59,7 @@ function closeMenu() {
 }
 
 function updateMenuVisibility() {
-	if (window.innerWidth > 600) {
+	if (window.innerWidth > menuMediaWidth) {
 		closeMenu();
 	}
 }

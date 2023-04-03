@@ -12,6 +12,7 @@ import './js/profile';
 import './js/authentication';
 import './js/products';
 import './js/gallery';
+import './js/footer';
 
 import { Window } from './js/Window';
 import { useDynamicAdapt } from './js/dynamic-adapt';

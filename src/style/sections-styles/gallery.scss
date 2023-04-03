@@ -1,5 +1,6 @@
 .share {
 	margin-bottom: 87px;
+	@include adaptiv-value('margin-bottom', 87, 32, 1);
 
 	&__container {}
 
@@ -16,6 +17,18 @@
 
 	&__gallery {
 		margin-left: calc(170 / 1240 * -100%);
+
+		@media (max-width: 1000px) {
+			margin-left: 0;
+		}
+	}
+
+	&__gallery-wrapper {
+		@media (max-width: 1000px) {
+			overflow-x: scroll;
+			margin: 0 -15px;
+		}
+
 	}
 }
 
@@ -26,6 +39,11 @@
 	margin-top: -24px;
 	position: relative;
 	transition: left 0.1s;
+
+
+	@media (max-width: 1000px) {
+		min-width: 1400px;
+	}
 
 	&__first-block {
 		flex: 0 0 calc(741 / 1800 * 100%);
