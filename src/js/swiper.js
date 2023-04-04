@@ -1,12 +1,17 @@
 // import Swiper bundle with all modules installed
-import Swiper from 'swiper/bundle';
+//import Swiper from 'swiper/bundle';
+import Swiper, { Navigation, Pagination, Parallax } from 'swiper';
 
 // import styles bundle
-import 'swiper/css/bundle';
+//import 'swiper/css/bundle';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // init Swiper:
 const furnitureSwiper = new Swiper('.slider-furniture', {
 	// Optional parameters
+	modules: [Navigation, Pagination, Parallax],
 	//direction: 'vertical',
 	loop: true,
 	parallax: true,
@@ -33,6 +38,7 @@ const furnitureSwiper = new Swiper('.slider-furniture', {
 });
 
 const roomsSwiper = new Swiper('.slider-rooms', {
+	modules: [Navigation, Pagination, Parallax],
 	loop: true,
 	parallax: true,
 	spaceBetween: 32,
@@ -55,19 +61,13 @@ const roomsSwiper = new Swiper('.slider-rooms', {
 });
 
 const tipsSwiper = new Swiper('.slider-tips', {
-	// Optional parameters
-	//direction: 'vertical',
+	modules: [Navigation, Pagination],
 	loop: true,
-	//parallax: true,
 	spaceBetween: 16,
 	speed: 800,
 	slidesPerView: 1,
 	watchOverflow: true,
 	loopedSlides: 2,
-	//centeredSlides: true,
-	//preloadImages: false,
-	//observer: true,
-	//observeParents: true,
 
 	// If we need pagination
 	pagination: {

@@ -2,6 +2,7 @@ let path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const postcssPresetEnv = require('postcss-preset-env');
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 let mode = process.env.NODE_ENV || 'development';
 let devMode = mode === 'development';
@@ -15,6 +16,7 @@ let plugins = [
 	new MiniCssExtractPlugin({
 		filename: 'style.[contenthash].css'
 	}),
+	//new BundleAnalyzerPlugin(),
 ];
 
 module.exports = {
