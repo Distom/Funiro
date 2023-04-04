@@ -26,7 +26,13 @@ initFirebaseAuth();
 
 async function signIn() {
 	let provider = new GoogleAuthProvider();
-	await signInWithPopup(getAuth(), provider);
+	try {
+		await signInWithPopup(getAuth(), provider);
+	} catch (error) {
+		console.warn('Error when login: ' + error);
+		return false;
+	}
+	return true;
 }
 
 function signOutUser() {
@@ -51,23 +57,24 @@ function getUserMail() {
 
 function authStateObserver(user) {
 	if (user) {
+		console.log('user');
 		accontImageElem.src = getProfilePicUrl();
 		updateProfileElemValues();
-		signOutBtn.disabled = false;
 		cartElem.classList.remove('cart_disabled');
 		addAllProductsToCartListHTML();
 	} else {
+		console.log('nouser');
 		accontImageElem.src = 'src/img/header/avatar.png';
 		resetProfileElemValues();
-		signInBtn.disabled = false;
 		cartElem.classList.add('cart_disabled');
 		clearCartListHTML();
 	}
 }
 
-function onSignInBtnClick() {
-	signIn();
+async function onSignInBtnClick() {
 	signInBtn.disabled = true;
+	await signIn();
+	signInBtn.disabled = false;
 }
 
 function onSignOutBtnClick() {

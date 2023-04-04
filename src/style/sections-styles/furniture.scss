@@ -183,6 +183,12 @@
 
 .furniture-slide {
 
+	&:not(.swiper-slide-active) {
+		.furniture-product-card {
+			visibility: hidden;
+		}
+	}
+
 	&__image-wrapper {
 		padding: 0 0 59% 0;
 
@@ -194,6 +200,7 @@
 }
 
 .furniture-product-card {
+	visibility: visible;
 	position: absolute;
 	background: rgba(255, 255, 255, 0.72);
 	backdrop-filter: blur(15.5px);

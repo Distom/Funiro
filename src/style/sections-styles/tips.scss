@@ -109,7 +109,10 @@
 
 	&__image {}
 
-	&__link {}
+	&__link {
+		display: inline-block;
+		width: 100%;
+	}
 
 	&__title {
 		font-weight: 600;
