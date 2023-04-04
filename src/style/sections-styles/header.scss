@@ -499,6 +499,11 @@
 		@media (max-width: 1000px) {
 			top: 75px;
 		}
+
+		@media (max-width: 450px) {
+			width: calc(100vw - 30px);
+			right: calc(30px - 100vw);
+		}
 	}
 
 	&__products {
@@ -515,6 +520,10 @@
 		.favourite__block {
 			right: max(calc((100vw - 1270px) / 2), 15px);
 			opacity: 1;
+
+			@media (max-width: 450px) {
+				right: 15px;
+			}
 		}
 
 		.favourite__button {
@@ -528,7 +537,7 @@
 		}
 
 		.favourite__block {
-			width: 300px;
+			width: 290px;
 			text-align: center;
 		}
 
@@ -546,10 +555,22 @@
 	display: flex;
 	gap: 15px;
 
+	@media (max-width: 360px) {
+		flex-direction: column;
+	}
+
 	&__image-wrapper {
 		padding: 0 0 40.62% 0;
 		/* 150/400 */
 		flex: 0 0 150px;
+
+		@media (max-width: 360px) {
+			padding: 0 0 80% 0;
+			transform: scale(0.75);
+			margin-top: -5px;
+			margin-bottom: -35px;
+			margin-left: -40px;
+		}
 	}
 
 	&__image {}
@@ -566,6 +587,8 @@
 		/* 18/16 */
 		margin-bottom: 8px;
 	}
+
+	&__buttons {}
 
 
 	&__delete-button,
@@ -619,6 +642,11 @@
 		@media (max-width: 1000px) {
 			top: 75px;
 		}
+
+		@media (max-width: 450px) {
+			width: calc(100vw - 30px);
+			right: calc(30px - 100vw);
+		}
 	}
 
 	&__products {
@@ -657,7 +685,7 @@
 
 	&_empty {
 		.cart__block {
-			width: 300px;
+			width: 290px;
 			text-align: center;
 		}
 
@@ -680,7 +708,7 @@
 
 	&_disabled {
 		.cart__block {
-			width: 300px;
+			width: 290px;
 		}
 
 		.cart__order-button {
@@ -789,6 +817,10 @@
 		@media (max-width: 1000px) {
 			top: 75px;
 		}
+
+		@media (max-width: 450px) {
+			right: calc(30px - 100vw);
+		}
 	}
 
 	&_active {
@@ -813,16 +845,27 @@
 	&__body {
 		display: flex;
 		gap: 15px;
+
+		@media (max-width: 380px) {
+			flex-direction: column;
+			text-align: center;
+		}
 	}
 
 	&__image-wrapper {
 		display: none;
-		padding: 0 0 28.57% 0;
+		max-width: 100px;
+		min-width: 100px;
+		height: 100px;
 		/* 100/350 */
 		/* 75/400 */
 		flex: 0 0 100px;
 		border-radius: 50%;
 		overflow: hidden;
+
+		@media (max-width: 380px) {
+			align-self: center;
+		}
 	}
 
 	&__image {}
@@ -861,6 +904,10 @@
 
 	&_logined {
 		width: 350px;
+
+		@media (max-width: 450px) {
+			width: calc(100vw - 30px);
+		}
 
 		.profile__image-wrapper {
 			display: block;

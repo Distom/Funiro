@@ -5,17 +5,16 @@ export { closeMenu };
 let menuBtn = document.querySelector('.header__menu-button');
 let menu = document.querySelector('.menu-header');
 let header = document.querySelector('.header');
-let menuListsArr = Array.from(document.querySelectorAll('.menu-header__list-item'));
 let headerScrollClassAdded = false;
 let isBurgerMenuActive = false;
 let menuMediaWidth = 600;
-let submenusClosed = false;
 
 Window.windows['menu'] = closeMenu;
 document.addEventListener('click', submenu);
 document.addEventListener('click', menuBurger);
 window.addEventListener('resize', updateMenuVisibility);
 document.addEventListener('scroll', updateMenuScrollClass);
+document.addEventListener('click', scrollToSection);
 
 function submenu(event) {
 	let button = event.target.closest('.menu-header__submenu-button');
@@ -72,4 +71,20 @@ function updateMenuScrollClass() {
 		header.classList.remove('header_scroll');
 		headerScrollClassAdded = false;
 	}
+}
+
+function scrollToSection(event) {
+	let link = event.target.closest('.menu-header__link');
+	if (!link) return;
+
+	let sectionId = link.getAttribute('href')?.slice(1);
+	if (!sectionId) return;
+
+	let section = document.getElementById(sectionId);
+	if (!section) return;
+
+	event.preventDefault();
+	let x = section.getBoundingClientRect().top + scrollY - header.offsetHeight;
+	scrollTo({ behavior: 'smooth', top: x });
+	closeMenu();
 }

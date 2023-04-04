@@ -17,7 +17,7 @@
 					<nav class="header__menu menu-header">
 						<ul class="menu-header__list">
 							<li class="menu-header__list-item">
-								<a href="#" class="menu-header__link">Products</a>
+								<a href="#products" class="menu-header__link">Products</a>
 								<button class="menu-header__submenu-button _icon-arrow"></button>
 								<ul class="menu-header__submenu submenu">
 									<li class="submenu__list-item">
@@ -35,7 +35,7 @@
 								</ul>
 							</li>
 							<li class="menu-header__list-item">
-								<a href="#" class="menu-header__link">Rooms</a>
+								<a href="#rooms" class="menu-header__link">Rooms</a>
 								<button class="menu-header__submenu-button  _icon-arrow"></button>
 								<ul class="menu-header__submenu submenu">
 									<li class="submenu__list-item">
@@ -59,7 +59,7 @@
 								</ul>
 							</li>
 							<li class="menu-header__list-item">
-								<a href="#" class="menu-header__link">Inspiration</a>
+								<a href="#inspiration" class="menu-header__link">Inspiration</a>
 							</li>
 						</ul>
 					</nav>
@@ -312,7 +312,7 @@
 					</li>
 				</ul>
 			</section>
-			<section class="products">
+			<section class="products" id="products">
 				<div class="products__container">
 					<h2 class="products__title title">Our Products</h2>
 					<ul class="products__body">
@@ -348,7 +348,7 @@
 					<button class="products__button button button_white">Show More</button>
 				</div>
 			</section>
-			<section class="rooms">
+			<section class="rooms" id="rooms">
 				<div class="rooms__container">
 					<div class="rooms__body">
 						<h2 class="rooms__title title">
@@ -544,7 +544,7 @@
 					<div class="slider-tips__pagination pagination"></div>
 				</div>
 			</section>
-			<section class="share">
+			<section class="share" id="inspiration">
 				<div class="share__container">
 					<div class="share__subtitle">Share your setup with</div>
 					<h2 class="share__title title">#FuniroFurniture</h2>
@@ -685,7 +685,8 @@
 					<h2 class="footer__subtitle footer-title">Stay Updated</h2>
 					<form action="" class="footer__form form-footer">
 						<label class="form-footer__label" for="email">Enter your email here</label>
-						<input type="text" required placeholder="Enter your email" class="form-footer__input">
+						<input type="text" placeholder="Enter your email" class="form-footer__input" required
+							pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$">
 						<button type="submit" class="form-footer__submit button"><span
 								class="form-footer__submit-icon _icon-send"></span></button>
 					</form>

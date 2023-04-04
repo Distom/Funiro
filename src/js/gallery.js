@@ -36,7 +36,6 @@ function onResize() {
 }
 
 function centerGallery() {
-	console.log('center');
 	let currentWindowWidth = window.innerWidth;
 	let shift = (1000 - currentWindowWidth) / 2;
 	let scrollX = galleryScrollX + shift;

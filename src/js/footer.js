@@ -10,11 +10,9 @@ toggleSubmenu();
 
 function toggleSubmenu() {
 	if (window.innerWidth > submenuMediaWidth && submenuAdded) {
-		console.log('remove');
 		footerLinksLists.forEach(elem => elem.classList.remove('submenu'));
 		submenuAdded = false;
 	} else if (window.innerWidth <= submenuMediaWidth && !submenuAdded) {
-		console.log('add');
 		footerLinksLists.forEach(elem => elem.classList.add('submenu'));
 		submenuAdded = true;
 	}
@@ -36,5 +34,3 @@ function submenu(event) {
 		menuItemElem.classList.toggle('footer__subblock_active');
 	}
 }
-
-
