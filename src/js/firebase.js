@@ -1,10 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {
 	getAuth,
-	onAuthStateChanged,
-	GoogleAuthProvider,
-	signInWithPopup,
-	signOut,
 } from 'firebase/auth';
 import {
 	getFirestore,
@@ -17,20 +13,8 @@ import {
 	getDoc,
 	doc,
 	deleteField,
-	onSnapshot,
 	setDoc,
-	updateDoc,
-	serverTimestamp,
-	addDoc,
 } from 'firebase/firestore';
-import {
-	getStorage,
-	ref,
-	uploadBytesResumable,
-	getDownloadURL,
-} from 'firebase/storage';
-import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-import { getPerformance } from 'firebase/performance';
 
 export {
 	loadProducts,
@@ -52,20 +36,6 @@ const app = initializeApp(firebaseConfig);
 let lastProductId = 0;
 
 async function loadProducts(count) {
-	/* const recentMessagesQuery = query(collection(getFirestore(), 'messages'), orderBy('timestamp', 'desc'), limit(12));
-
-	// Start listening to the query.
-	onSnapshot(recentMessagesQuery, function (snapshot) {
-		snapshot.docChanges().forEach(function (change) {
-			if (change.type === 'removed') {
-				deleteMessage(change.doc.id);
-			} else {
-				var message = change.doc.data();
-				displayMessage(change.doc.id, message.timestamp, message.name,
-					message.text, message.profilePicUrl, message.imageUrl);
-			}
-		});
-	}); */
 	let q = query(collection(getFirestore(), 'products'), where('id', '>', lastProductId), orderBy('id'), limit(count));
 	let querySnapshot;
 
@@ -79,20 +49,7 @@ async function loadProducts(count) {
 	lastProductId += count;
 	let products = querySnapshot.docs.map(doc => doc.data());
 	return products;
-	//console.log(products);
-	/* querySnapshot.forEach((doc) => {
-		console.log(doc.id, " => ", doc.data());
-	}); */
 }
-
-/* let query = query(collection(getFirestore(), 'products'), orderBy('timestamp', 'desc'));
-
-const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
-	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, " => ", doc.data());
-});
- */
 
 async function loadProduct(productId) {
 	let docRef = doc(getFirestore(), 'products', productId)
@@ -112,31 +69,6 @@ async function loadProduct(productId) {
 		console.log('Product not found');
 	}
 }
-
-
-/* const docRef = doc(db, "cities", "SF");
-const docSnap = await getDoc(docRef);
-
-if (docSnap.exists()) {
-	console.log("Document data:", docSnap.data());
-} else {
-	// doc.data() will be undefined in this case
-	console.log("No such document!");
-} */
-
-/* async function createUserCart() {
-	let userId = getAuth().currentUser.uid;
-	console.log(userId);
-	let userCartRef = doc(getFirestore(), 'users', userId);
-	let userCartSnap = await getDoc(userCartRef);
-
-	if (!userCartSnap.exists()) {
-		console.log('cart not found');
-		try {
-			await setDoc(getFirestore(), 'users', userId) {}
-		}
-	}
-} */
 
 async function updateProductInUserCart(productId, addProduct = true) {
 	if (!getAuth().currentUser) return;
