@@ -169,6 +169,10 @@
 		.rooms-slide__image-wrapper {
 			height: 83%;
 		}
+
+		.rooms-slide__description-card {
+			visibility: hidden;
+		}
 	}
 
 	&__image-wrapper {
@@ -179,6 +183,7 @@
 	&__image {}
 
 	&__description-card {
+		visibility: visible;
 		position: absolute;
 		left: 24px;
 		bottom: 24px;

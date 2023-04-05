@@ -118,7 +118,6 @@ async function onMoveToCartClick(event) {
 
 	let isMoved = await moveToCart(productId);
 	if (!isMoved) return;
-	console.log(isMoved);
 
 	removeFromLocaleStorage(productId);
 	productElem.remove();

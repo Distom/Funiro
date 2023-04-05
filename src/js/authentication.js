@@ -57,13 +57,11 @@ function getUserMail() {
 
 function authStateObserver(user) {
 	if (user) {
-		console.log('user');
 		accontImageElem.src = getProfilePicUrl();
 		updateProfileElemValues();
 		cartElem.classList.remove('cart_disabled');
 		addAllProductsToCartListHTML();
 	} else {
-		console.log('nouser');
 		accontImageElem.src = 'src/img/header/avatar.png';
 		resetProfileElemValues();
 		cartElem.classList.add('cart_disabled');

@@ -47,8 +47,15 @@
 	&__wrapper {}
 
 	&__slide {
-		transition: box-shadow 0.3s !important;
+		transition: box-shadow 0.3s, visibility 0.8s !important;
 		padding: 16px;
+		visibility: hidden;
+
+		&.swiper-slide-active,
+		&.swiper-slide-active+&,
+		&.swiper-slide-active+&+& {
+			visibility: visible;
+		}
 
 		&:hover {
 			box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.06);

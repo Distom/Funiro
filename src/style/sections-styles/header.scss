@@ -141,7 +141,8 @@
 		z-index: 10;
 		transition: transform 0.3s, opacity 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			opacity: 0.7;
 		}
 
@@ -271,7 +272,9 @@
 		}
 
 		@media (any-hover: hover) and (min-width: 600px) {
-			&:hover {
+
+			&:hover,
+			&:focus-within {
 
 				.menu-header__link {
 					color: $titleColor;
@@ -390,7 +393,8 @@
 		display: flex;
 		max-width: 473px;
 
-		&:hover {
+		&:hover,
+		&:focus-within {
 			.search__input::placeholder {
 				opacity: 0.6;
 			}
@@ -398,10 +402,11 @@
 
 		@media (max-width: 770px) {
 			opacity: 0;
+			visibility: hidden;
 			position: fixed;
 			top: -100%;
 			left: 0;
-			transition: opacity 0.3s, top 0.3s;
+			transition: opacity 0.3s, top 0.3s, visibility 0.3s;
 			max-width: none;
 			width: 100vw;
 		}
@@ -414,7 +419,8 @@
 		color: rgba(38, 47, 86, 1);
 		transition: opacity 0.3s, color 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			opacity: 0.5;
 		}
 
@@ -456,6 +462,7 @@
 		.search__form {
 			top: 60px;
 			opacity: 1;
+			visibility: visible;
 		}
 
 		.search__button {
@@ -475,7 +482,8 @@
 		transition: opacity 0.3s, color 0.3s;
 		position: relative;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			opacity: 0.5;
 		}
 	}
@@ -619,7 +627,8 @@
 		transition: opacity 0.3s, color 0.3s;
 		position: relative;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			opacity: 0.5;
 
 		}
@@ -833,7 +842,8 @@
 			opacity: 1;
 		}
 
-		.account__image-wrapper:hover {
+		.account__image-wrapper:hover,
+		.account__image-wrapper:focus-visible {
 			&::before {
 				opacity: 0.5;
 			}

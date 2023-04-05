@@ -64,7 +64,7 @@ async function getProductsHTML(count) {
 
 function getProductHTML(productObject) {
 	let productHTML = `
-	<li data-id="${productObject.id}" class="products__card product-card">
+	<li data-id="${productObject.id}" class="products__card product-card" tabindex="0">
 		<div class="product-card__image-wrapper _bgi-wrapper">
 			<img src="${productObject.imageUrl}" alt="${productObject.description}" class="product-card__image _bgi">
 		</div>

@@ -57,7 +57,8 @@
 		color: inherit;
 		transition: color 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: $titleColor;
 		}
 	}
@@ -70,7 +71,8 @@
 		color: inherit;
 		transition: color 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: $titleColor;
 		}
 	}
@@ -83,7 +85,8 @@
 		color: inherit;
 		transition: color 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: $titleColor;
 		}
 	}
@@ -120,7 +123,8 @@
 		color: #616161;
 		transition: color 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: #000;
 		}
 	}
@@ -179,7 +183,8 @@
 				width: 100%;
 				font-size: 1.2rem;
 
-				&:hover {
+				&:hover,
+				&:focus-visible {
 					text-decoration: underline;
 				}
 			}
@@ -221,7 +226,8 @@
 			transition: opacity 0.3s;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			&::placeholder {
 				color: $titleColor;
 			}

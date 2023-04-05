@@ -18,7 +18,8 @@
 	&__link {
 		color: #fff;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			text-decoration: underline;
 		}
 	}
@@ -64,13 +65,16 @@
 	cursor: pointer;
 
 	&:hover,
-	&_white {
+	&:focus-visible,
+	&_white,
+	&_white:focus-visible {
 		background-color: #fff;
 		border: 1px solid $orange;
 		color: $orange;
 	}
 
-	&_white:hover {
+	&_white:hover,
+	&_white:focus-visible {
 		background-color: $orange;
 		border: 1px solid transparent;
 		color: #fff;
@@ -86,7 +90,8 @@
 		transform: rotate(-90deg);
 		border: none;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: $orange;
 			background-color: rgba(232, 159, 113, 0.3);
 			border: none;
@@ -97,7 +102,8 @@
 			background-color: rgba(232, 159, 113, 0.3);
 			transform: rotate(90deg);
 
-			&:hover {
+			&:hover,
+			&:focus-visible {
 				color: #fff;
 				background-color: $orange;
 				border: none;
@@ -108,7 +114,8 @@
 			background-color: #fff;
 			color: $orange;
 
-			&:hover {
+			&:hover,
+			&:focus-visible {
 				color: #fff;
 				background-color: rgba(232, 159, 113, 1);
 			}

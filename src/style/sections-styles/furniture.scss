@@ -283,7 +283,8 @@
 		justify-content: flex-end;
 		transition: transform 0.3s;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			.furniture-product-card__arrow {
 				transform: scale(1.2);
 			}

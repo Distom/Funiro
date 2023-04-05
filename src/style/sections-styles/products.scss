@@ -29,7 +29,8 @@
 	background: #F4F5F7;
 	position: relative;
 
-	&:hover {
+	&:hover,
+	&:focus-within {
 		.product-card__buttons {
 			opacity: 1;
 			visibility: visible;
@@ -142,7 +143,8 @@
 		transition: color 0.3s;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus-visible {
 		color: $orange;
 	}
 }

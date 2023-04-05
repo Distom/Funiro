@@ -40,6 +40,10 @@
 	position: relative;
 	transition: left 0.1s;
 
+	._bgi {
+		cursor: pointer;
+	}
+
 
 	@media (max-width: 1000px) {
 		min-width: 1400px;
