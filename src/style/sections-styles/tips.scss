@@ -49,12 +49,24 @@
 	&__slide {
 		transition: box-shadow 0.3s, visibility 0.8s !important;
 		padding: 16px;
-		visibility: hidden;
 
-		&.swiper-slide-active,
-		&.swiper-slide-active+&,
-		&.swiper-slide-active+&+& {
-			visibility: visible;
+
+		@media (any-hover: hover) {
+			visibility: hidden;
+
+			&.swiper-slide-active,
+			&.swiper-slide-active+& {
+				transition: box-shadow 0.3s !important;
+				visibility: visible;
+			}
+
+			@media (min-width: 1150px) {
+				&.swiper-slide-active+&+& {
+					transition: box-shadow 0.3s !important;
+					visibility: visible;
+				}
+			}
+
 		}
 
 		&:hover {
