@@ -1,4 +1,5 @@
 import lightGallery from "lightgallery";
+import { isMobile } from "./is-mobile";
 
 let galleryElem = document.querySelector('.gallery-share');
 let galleryWrapper = document.querySelector('.share__gallery-wrapper');
@@ -10,6 +11,7 @@ let listenersAdded = false;
 let galleryScrollX = 170 / 1800 * 1400;
 
 window.addEventListener('resize', onResize);
+addGalleryMove();
 onResize();
 
 lightGallery(document.querySelector('.gallery-share'), {
@@ -18,21 +20,25 @@ lightGallery(document.querySelector('.gallery-share'), {
 });
 
 function onResize() {
-	if (window.innerWidth > 1000 && !listenersAdded) {
-		galleryElem.addEventListener('mouseenter', onEnter);
-		galleryElem.addEventListener('mouseleave', onLeave);
-		galleryElem.style.marginLeft = '';
-		listenersAdded = true;
-	} else if (window.innerWidth <= 1000) {
-		if (listenersAdded) {
+	if (window.innerWidth <= 1000) {
+		requestAnimationFrame(centerGallery);
+		if (!isMobile.any() && listenersAdded) {
 			galleryElem.removeEventListener('mouseenter', onEnter);
 			galleryElem.removeEventListener('mouseleave', onLeave);
 			galleryElem.removeEventListener('mousemove', onMouseOver);
-			resetGallery();
 			listenersAdded = false;
 		}
-		requestAnimationFrame(centerGallery);
+	} else {
+		addGalleryMove();
 	}
+}
+
+function addGalleryMove() {
+	if (isMobile.any() || listenersAdded) return;
+	galleryElem.addEventListener('mouseenter', onEnter);
+	galleryElem.addEventListener('mouseleave', onLeave);
+	galleryElem.style.marginLeft = '';
+	listenersAdded = true;
 }
 
 function centerGallery() {

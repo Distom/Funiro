@@ -17,18 +17,41 @@
 
 	&__gallery {
 		margin-left: calc(170 / 1240 * -100%);
-
-		@media (max-width: 1000px) {
-			margin-left: 0;
-		}
 	}
 
 	&__gallery-wrapper {
-		@media (max-width: 1000px) {
-			overflow-x: scroll;
-			margin: 0 -15px;
+		@media (any-hover: hover) and (max-width: 1000px) {
+			overflow: auto;
+
+			.share__gallery {
+				margin-left: 0;
+			}
+		}
+	}
+
+	@media (any-hover: none) {
+		&__gallery {
+			margin-left: 0;
+			max-width: 1800px;
 		}
 
+		&__gallery-wrapper {
+			overflow: auto;
+			margin: 0 -15px;
+			max-width: 1800px;
+			max-height: 721px;
+
+			@media (min-width: 1270px) {
+				overflow: auto;
+				width: 100vw;
+				position: relative;
+				left: calc((100vw - 1269px) / -2);
+
+				@media (min-width: 1800px) {
+					left: -263px;
+				}
+			}
+		}
 	}
 }
 
