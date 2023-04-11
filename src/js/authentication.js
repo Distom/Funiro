@@ -35,13 +35,6 @@ async function signIn() {
 		});
 
 	return true;
-	/* try {
-		await signInWithPopup(getAuth(), provider);
-	} catch (error) {
-		console.warn('Error when login: ' + error);
-		return false;
-	}
-	return true; */
 }
 
 function signOutUser() {
