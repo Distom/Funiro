@@ -3,6 +3,7 @@ import {
 	onAuthStateChanged,
 	GoogleAuthProvider,
 	signInWithPopup,
+	signInWithRedirect,
 	signOut,
 } from 'firebase/auth';
 import { addAllProductsToCartListHTML, clearCartListHTML } from './cart';
@@ -26,13 +27,21 @@ initFirebaseAuth();
 
 async function signIn() {
 	let provider = new GoogleAuthProvider();
-	try {
+	await signInWithPopup(getAuth(), provider)
+		.catch(() => signInWithRedirect(getAuth(), provider))
+		.catch(error => {
+			console.warn('Error when login: ' + error);
+			return false;
+		});
+
+	return true;
+	/* try {
 		await signInWithPopup(getAuth(), provider);
 	} catch (error) {
 		console.warn('Error when login: ' + error);
 		return false;
 	}
-	return true;
+	return true; */
 }
 
 function signOutUser() {
